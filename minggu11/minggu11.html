@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Looping</title>
+</head>
+<body>
+    <h3>Daftar Nama Koruptor</h3>
+    <form onsubmit="" action="javascript:void(0);" method="POST">
+            <input type="text" placeholder="inputan nama" id="namaMhs">
+            <input type="submit" value="+">
+    </form>
+    <div id="counter">
+    <!--Dinamis-->
+    </div>
+    <table border="solid black 1px">
+        <head>
+                <tr><td>Daftar Nama Koruptor</td></tr>
+        </head>
+        <body id="Daftar Nama">
+        <!--Dinamis JS-->
+        </body>           
+    </table>
+    <script>
+        var apl = new function(){
+            this.el = document.getElementById("DaftarNama");
+            this.mhs = ["Bambang","Bumbung","Bombong"];
+
+            this.barisA11 = FUNCTION()
+                var data = "";
+                if (this.mhs.length > 0){
+                    for (i=0; i < this.mhs.lenght;i++){
+                    data += '<tr>';
+                    data += '<td>'; + this.mhs[i] + '</td>';
+                    data += '<button onclick="apl.delData(' + i + ')">Del</button>';
+                    data += '<button onclick="apl.upData(' + i + ')">upd</button>';
+                    data += '</td></tr>';
+                }
+            }
+            this.count(this.mhs.length);
+            return this.el.innerHTML = data;
+        };
+        this.count = function(data){
+            var el = document.getElementById('counter');
+            if(data){
+                el.innerHTML = 'jumlah:' + data + '' + 'mahasiswa';
+            } else {
+                el.innerHTML = 'Data kosong';
+            }
+        };
+        this.addData = function(){
+            el = document.getElementById('NamaMhs');
+            var NamaMhs = el.value;
+            if(NamaMhs){
+                this.mhs.push(NamaMhs.trim());
+                el.value = '';
+                this.barisA11();
+            } 
+        }
+        this.DelData = function(item){
+            var yakin = confirm;
+            if (yakin=true){
+                this.mhs.splice(item,1);
+            }
+            this.barisA11();
+        }
+        this.updData = function(item){
+            var dataUpd = prompt;
+            if(dataUpd){
+                this.mhs[item];
+                if(dataUpd){
+                    this.mhs[item]=dataUpd;
+                }
+                this.barisA11();
+            }
+        }
+        apl.barisA11();
+    </script>
+
+    </script>
+</body>
+</html>
